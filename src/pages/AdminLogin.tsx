@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -44,7 +43,7 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#1A1F2C] to-[#2A3241]">
       <Header />
       
       <main className="flex-1 flex items-center justify-center p-4">
@@ -54,10 +53,10 @@ const AdminLogin = () => {
           transition={{ duration: 0.5 }}
           className="w-full max-w-md"
         >
-          <Card className="border-2 border-blue-100">
+          <Card className="border border-blue-400/20 bg-[#2A3241]/50 backdrop-blur-sm">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold font-poppins bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-                Admin Login
+              <CardTitle className="text-2xl font-bold font-poppins bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
+                Secure Admin Access
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -68,10 +67,10 @@ const AdminLogin = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter admin password"
-                    className="pl-10"
+                    className="pl-10 bg-[#1A1F2C]/50 border-blue-400/20 text-blue-100"
                     required
                   />
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-blue-400" />
                 </div>
 
                 <Button 
@@ -82,17 +81,13 @@ const AdminLogin = () => {
                   {isLoading ? (
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 border-2 border-white/50 border-t-white rounded-full animate-spin" />
-                      <span>Logging in...</span>
+                      <span>Authenticating...</span>
                     </div>
                   ) : (
-                    'Login'
+                    'Secure Login'
                   )}
                 </Button>
               </form>
-              
-              <p className="mt-4 text-xs text-center text-gray-500">
-                Default password: admin123
-              </p>
             </CardContent>
           </Card>
         </motion.div>

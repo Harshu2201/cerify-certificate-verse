@@ -26,7 +26,7 @@ const ISSUES_KEY = 'ecell_issues';
 const ADMIN_PASSWORD_KEY = 'ecell_admin_password';
 
 // Default Admin Password (in a real app, this would be stored securely on a backend)
-const DEFAULT_PASSWORD = 'admin123';
+const DEFAULT_PASSWORD = 'InnovatExpo2025';
 
 // Initialize default data
 const initializeData = () => {
