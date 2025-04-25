@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CertificateSearch } from "@/components/CertificateSearch";
@@ -24,13 +23,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#1A1F2C] to-[#2A3241]">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#0A1929] to-[#1A1F2C]">
       <Header />
       
       <main className="flex-1">
-        {/* Hero Section */}
         <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-[#1A1F2C]/50 backdrop-blur-sm z-0" />
+          <div className="absolute inset-0 bg-[#0A1929]/50 backdrop-blur-sm z-0" />
           <div className="container relative z-10 px-4 mx-auto">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -39,12 +37,12 @@ const Index = () => {
               className="text-center max-w-3xl mx-auto mb-16"
             >
               <div className="flex justify-center mb-6">
-                <Shield className="w-16 h-16 text-blue-400" />
+                <Shield className="w-16 h-16 text-blue-400 animate-pulse-blue" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold font-poppins mb-6 bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-5xl font-bold font-poppins mb-6 text-glow bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200 bg-clip-text text-transparent">
                 Secure Certificate Distribution Portal
               </h1>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-xl text-blue-100 mb-8">
                 Access and verify your certificates with enhanced security features.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -67,15 +65,13 @@ const Index = () => {
               </div>
             </motion.div>
             
-            {/* Certificate Search */}
             <CertificateSearch />
           </div>
         </section>
         
-        {/* Features Section */}
-        <section className="py-20 bg-[#1A1F2C]/80 backdrop-blur-sm">
+        <section className="py-20 bg-[#0A1929]/80 backdrop-blur-sm">
           <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold font-poppins text-center mb-12 text-blue-100">
+            <h2 className="text-3xl font-bold font-poppins text-center mb-12 text-glow text-blue-100">
               Secure Verification Process
             </h2>
             <motion.div 
