@@ -1,5 +1,6 @@
 
-import { Mail, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Mail, Instagram, Linkedin, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -17,37 +18,64 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-600 hover:text-blue-600 text-sm">Home</a></li>
-              <li><a href="#certificates" className="text-gray-600 hover:text-blue-600 text-sm">Certificates</a></li>
-              <li><a href="#support" className="text-gray-600 hover:text-blue-600 text-sm">Support</a></li>
+              <li><Link to="/" className="text-gray-600 hover:text-blue-600 text-sm">Home</Link></li>
+              <li><Link to="/certificates" className="text-gray-600 hover:text-blue-600 text-sm">Certificates</Link></li>
+              <li><Link to="/support" className="text-gray-600 hover:text-blue-600 text-sm">Support</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
-            <div className="space-y-2">
-              <a href="mailto:info@ecell.com" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 text-sm">
+            <div className="space-y-3">
+              <a href="mailto:ecellmeswcoe@gmail.com" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 text-sm">
                 <Mail className="h-4 w-4" />
-                info@ecell.com
+                ecellmeswcoe@gmail.com
+              </a>
+              <a 
+                href="https://chat.whatsapp.com/B9khcm1zUf6DcK8C2GKFur" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-600 hover:text-blue-600 text-sm"
+              >
+                <MessageSquare className="h-4 w-4" />
+                Community Link
               </a>
             </div>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-600 hover:text-blue-600">
-                <Facebook className="h-5 w-5" />
+              <a 
+                href="https://www.instagram.com/meswcoe_e_cell?igsh=MWg0a2ptaXkzYXNqOA==" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600"
+              >
+                <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-600 hover:text-blue-600">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-600 hover:text-blue-600">
+              <a 
+                href="https://www.linkedin.com/company/meswcoe-e-cell/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t text-center text-gray-600 text-sm">
-          © {new Date().getFullYear()} E-Cell MESWCOE. All rights reserved.
+          <div>© {new Date().getFullYear()} E-Cell MESWCOE. All rights reserved.</div>
+          <div className="mt-2">
+            Website developed by{" "}
+            <a 
+              href="https://www.linkedin.com/in/harshad-pakhale-221hp?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-medium text-blue-600 hover:underline"
+            >
+              Harshad Harishchandra Pakhale
+            </a>
+          </div>
         </div>
       </div>
     </footer>
