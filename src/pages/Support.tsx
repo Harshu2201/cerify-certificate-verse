@@ -59,7 +59,7 @@ const Support = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#0A1929] text-blue-100">
       <Header />
       
       <main className="flex-1 container mx-auto px-4 py-10">
@@ -69,82 +69,87 @@ const Support = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-3xl md:text-4xl font-bold font-poppins text-center mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold font-poppins text-center mb-2 text-blue-200 text-glow">
               Need Help?
             </h1>
-            <p className="text-center text-gray-600 mb-10">
+            <p className="text-center text-blue-300 mb-10">
               Submit your enquiry and we'll get back to you as soon as possible.
             </p>
           </motion.div>
 
-          <div className="bg-white rounded-lg shadow-md p-6 md:p-8 border">
+          <div className="bg-[#2A3241]/50 rounded-lg shadow-md p-6 md:p-8 border border-blue-400/20 backdrop-blur-sm">
             {isSubmitted ? (
               <motion.div 
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 className="py-16 text-center"
               >
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <h2 className="text-2xl font-semibold text-green-600 mb-2">Thank You!</h2>
-                <p className="text-gray-600 mb-4">Your enquiry has been submitted successfully.</p>
-                <p className="text-gray-500 text-sm">We'll get back to you shortly.</p>
+                <h2 className="text-2xl font-semibold text-green-300 mb-2">Thank You!</h2>
+                <p className="text-blue-200 mb-4">Your enquiry has been submitted successfully.</p>
+                <p className="text-blue-300 text-sm">We'll get back to you shortly.</p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-base">Your Name</Label>
+                    <Label htmlFor="name" className="text-base text-blue-200">Your Name</Label>
                     <Input 
                       id="name" 
                       value={name} 
                       onChange={(e) => setName(e.target.value)}
-                      className="h-11" 
+                      className="h-11 tech-input text-blue-100 placeholder-blue-400" 
+                      placeholder="Enter your name"
                       required 
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-base">Email Address</Label>
+                    <Label htmlFor="email" className="text-base text-blue-200">Email Address</Label>
                     <Input 
                       id="email" 
                       type="email" 
                       value={email} 
                       onChange={(e) => setEmail(e.target.value)}
-                      className="h-11" 
+                      className="h-11 tech-input text-blue-100 placeholder-blue-400" 
+                      placeholder="Enter your email"
                       required 
                     />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-base">Subject</Label>
+                  <Label htmlFor="subject" className="text-base text-blue-200">Subject</Label>
                   <Input 
                     id="subject" 
                     value={subject} 
                     onChange={(e) => setSubject(e.target.value)}
-                    className="h-11" 
+                    className="h-11 tech-input text-blue-100 placeholder-blue-400" 
+                    placeholder="Enter subject"
                     required 
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-base">Your Message</Label>
+                  <Label htmlFor="message" className="text-base text-blue-200">Your Message</Label>
                   <Textarea 
                     id="message" 
                     value={message} 
                     onChange={(e) => setMessage(e.target.value)}
                     rows={6} 
+                    className="tech-input text-blue-100 placeholder-blue-400"
+                    placeholder="Enter your message"
                     required 
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 h-11 text-base"
+                  className="w-full bg-gradient-to-r from-blue-600/80 to-blue-400/80 hover:from-blue-700 hover:to-blue-500 h-11 text-base text-white"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -168,3 +173,4 @@ const Support = () => {
 };
 
 export default Support;
+
