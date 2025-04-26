@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '@/components/Header';
@@ -27,14 +26,12 @@ const AdminPanel = () => {
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [issues, setIssues] = useState<Issue[]>([]);
   
-  // Certificate form state
   const [name, setName] = useState('');
   const [token, setToken] = useState('');
   const [event, setEvent] = useState('');
   const [issueDate, setIssueDate] = useState(new Date().toISOString().split('T')[0]);
   const [certificateFile, setCertificateFile] = useState<File | null>(null);
 
-  // Check if admin is logged in
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
     
@@ -45,14 +42,15 @@ const AdminPanel = () => {
     
     loadData();
     
-    // Set up interval to refresh data every few seconds (simulating real-time)
     const interval = setInterval(loadData, 5000);
     return () => clearInterval(interval);
   }, [navigate]);
   
-  const loadData = () => {
-    setCertificates(getCertificates());
-    setIssues(getIssues());
+  const loadData = async () => {
+    const certificatesData = await getCertificates();
+    const issuesData = await getIssues();
+    setCertificates(certificatesData);
+    setIssues(issuesData);
   };
   
   const handleLogout = () => {
@@ -60,8 +58,9 @@ const AdminPanel = () => {
     navigate('/admin-login');
   };
   
-  const handleGenerateToken = () => {
-    setToken(generateUniqueToken());
+  const handleGenerateToken = async () => {
+    const newToken = await generateUniqueToken();
+    setToken(newToken);
   };
   
   const handleCertificateSubmit = (e: React.FormEvent) => {
@@ -76,8 +75,6 @@ const AdminPanel = () => {
       return;
     }
 
-    // In a real app, we'd upload the file to a server or cloud storage
-    // Here we'll create a fake URL to simulate
     const fakeUrl = URL.createObjectURL(certificateFile);
     
     const newCertificate: Certificate = {
@@ -98,14 +95,12 @@ const AdminPanel = () => {
       description: `Certificate for ${name} has been added successfully.`,
     });
     
-    // Reset form
     setName('');
     setToken('');
     setEvent('');
     setIssueDate(new Date().toISOString().split('T')[0]);
     setCertificateFile(null);
     
-    // Reset file input by clearing its value
     const fileInput = document.getElementById('certificate-file') as HTMLInputElement;
     if (fileInput) fileInput.value = '';
   };

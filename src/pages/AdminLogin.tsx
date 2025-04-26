@@ -20,15 +20,14 @@ const AdminLogin = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate network delay
-    setTimeout(() => {
-      if (verifyAdminPassword(password)) {
+    try {
+      const isValid = await verifyAdminPassword(password, password);
+      if (isValid) {
         toast({
           title: "Login Successful",
           description: "Welcome to the Admin Panel",
         });
         
-        // Store admin session in localStorage
         localStorage.setItem('adminLoggedIn', 'true');
         navigate('/admin');
       } else {
@@ -38,8 +37,15 @@ const AdminLogin = () => {
           variant: "destructive",
         });
       }
+    } catch (error) {
+      toast({
+        title: "Login Failed",
+        description: "An error occurred. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
